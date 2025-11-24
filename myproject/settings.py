@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sumozcontent.fly.dev']
 CSRF_TRUSTED_ORIGINS = ['https://sumozcontent.fly.dev']
 
 # Security settings for HTTPS
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True  # Disabled because Fly handles HTTPS
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
