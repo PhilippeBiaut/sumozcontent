@@ -24,8 +24,8 @@ class BlogAdmin(admin.ModelAdmin):
         if request.method == 'POST':
             count = int(request.POST.get('count', 1))
             for _ in range(count):
-                create_random_blog_post()  # Sync, no Celery
-            messages.success(request, f'{count} article(s) généré(s) avec succès.')
+                create_random_blog_post.delay()  # Async with Celery
+            messages.success(request, f'{count} article(s) en cours de génération.')
             return redirect('..')
         return render(request, 'admin/generate_articles.html', {'title': 'Générer des articles'})
 
