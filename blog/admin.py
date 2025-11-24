@@ -4,12 +4,10 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Blog
 from .tasks import create_random_blog_post
-from django_celery_results.models import TaskResult
 
 # Register your models here.
 
 admin.site.register(Blog)
-admin.site.register(TaskResult)
 
 
 class BlogAdmin(admin.ModelAdmin):
