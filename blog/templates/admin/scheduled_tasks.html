@@ -1,0 +1,12 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls %}
+
+{% block content %}
+<div class="module">
+    <h2>{{ title }}</h2>
+    <h3>Tâches actives</h3>
+    <pre>{{ active|linebreaksbr }}</pre>
+    <h3>Tâches planifiées</h3>
+    <pre>{{ scheduled|linebreaksbr }}</pre>
+</div>
+{% endblock %}
