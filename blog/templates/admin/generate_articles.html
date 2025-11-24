@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls %}
+
+{% block content %}
+<div class="module">
+    <h2>Générer des articles aléatoires</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <label for="id_count">Nombre d'articles :</label>
+            <input type="number" name="count" id="id_count" value="1" min="1" max="100">
+        </div>
+        <input type="submit" value="Générer">
+    </form>
+</div>
+{% endblock %}
