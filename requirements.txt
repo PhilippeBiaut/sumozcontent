@@ -1,3 +1,6 @@
 Django==5.0.0
 gunicorn
 whitenoise
+celery
+django-celery-beat
+django-celery-results
