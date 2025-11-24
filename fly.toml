@@ -3,7 +3,7 @@ console_command = "/code/manage.py shell"
 primary_region = "iad"
 
 [build]
-builder = "heroku/buildpacks:20"
+builder = "paketobuildpacks/builder:base"
 
 [env]
 PORT = "8000"
