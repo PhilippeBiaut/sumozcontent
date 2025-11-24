@@ -4,3 +4,4 @@ whitenoise
 celery
 django-celery-beat
 django-celery-results
+supervisor
