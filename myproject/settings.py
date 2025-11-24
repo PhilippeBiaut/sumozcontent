@@ -31,6 +31,7 @@ CSRF_TRUSTED_ORIGINS = ['https://sumozcontent.fly.dev']
 
 # Security settings for HTTPS
 # SECURE_SSL_REDIRECT = True  # Disabled because Fly handles HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
