@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Blog
 from .tasks import create_random_blog_post
 import subprocess
+from datetime import datetime, timedelta
 
 # Register your models here.
 
@@ -27,7 +28,8 @@ class BlogAdmin(admin.ModelAdmin):
             count = int(request.POST.get('count', 1))
             interval = int(request.POST.get('interval', 10))
             for i in range(count):
-                create_random_blog_post.apply_async(countdown=i*interval)
+                eta = datetime.now() + timedelta(seconds=i*interval)
+                create_random_blog_post.apply_async(eta=eta)
             messages.success(request, f'{count} article(s) en cours de génération (intervalle: {interval}s, durée: {(count-1)*interval}s).')
             return redirect('..')
         return render(request, 'admin/generate_articles.html', {'title': 'Générer des articles'})
